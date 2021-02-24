@@ -1,0 +1,477 @@
+.App{
+  box-sizing: border-box;
+  overflow-x: hidden;
+  text-align: center;
+  
+}
+.home{
+  height: 120vh;
+  width: 100vw;
+  position: relative;
+  
+}
+
+.brand{
+  position: absolute;
+  top: -3%;
+  left: 2%;
+  height: auto;
+}
+.brand img{
+  height: 150px;
+  width: 55px;
+
+}
+input:focus{
+  outline: none;
+}
+/* search bar and icon */
+.search-container{
+  position: absolute;
+  top: 3%;
+  right: 2%;
+}
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  outline: none;
+  color: rgba(0,0,0);
+}
+
+.searchTerm:focus{
+  color: rgba(0,0,0);
+}
+
+.searchButton {
+  width: 40px;
+  height: 32px;
+  border: 1px solid green;
+  background: green;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.home-content{
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+
+.nav-box{
+  height: 7rem;
+  width: 17rem;
+  border: 0.2rem solid green;
+  padding: 0.5rem 1.2rem 0.2rem 1.2rem;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0.1rem 0.1rem 0.7rem rgba(0,0,0, 0.2);
+}
+.nav-box:hover{
+  box-shadow: 0.1rem 0.1rem 0.7rem rgba(0,0,0, 0.35);
+
+}
+
+.nav-box p{
+  font-size: 0.8rem;
+  color: red;
+}
+.nav-box h3{
+  font-size: 1rem;
+}
+
+.nav-boxes{
+  width: 70vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.brand-description{
+  font-size: 1.2rem;
+}
+
+.sellingPoint-section{
+  margin-top: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.selling-pointHeader{
+  font-size: 1.25rem;
+}
+
+.selling-point{
+  height: 5rem;
+  width: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.2rem solid green;
+  cursor: pointer;
+}
+.selling-points{
+  margin-top: 2rem;
+  display: flex;
+  width: 50vw;
+  justify-content: space-between;
+  left: 50%;
+
+}
+
+/*style for upload doc page */
+
+.upload-doc{
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+
+}
+
+.home-btn{
+  border: none;
+  background-color: green;
+  color: rgba(255, 255, 255);
+  padding: 0.5rem 1.4rem;
+  position: absolute;
+  top: 3%;
+  right: 2.5%;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0.1rem 0.1rem 0.7rem rgba(0,0,0, 0.1);
+}
+.home-btn:hover{
+  box-shadow: 0.1rem 0.1rem 0.7rem rgba(0,0,0, 0.3);
+}
+
+.uploadPage-content{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+.uploadPage-content h2{
+  font-weight: lighter;
+  font-weight: 400;
+}
+
+.uploadDoc-box{
+  height: 7rem;
+  width: 12rem;
+  border: thin solid rgba(0,0,0);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: red;
+  margin-top: 2rem;
+  padding: 1rem 0 0 0;
+  cursor: pointer;
+}
+
+.uploadDoc-box img{
+  height: 3rem;
+  width: 2.5rem;
+}
+
+.uploadPage-content label{
+  display: block;
+}
+
+.uploadPage-content .input-box{
+  margin-top: 1.5rem;
+}
+
+.uploadPage-content .input-box input{
+  width: 16rem;
+  height: 1.4rem;
+}
+
+.uploadPage-content2{
+  top: 50%;
+}
+
+.uploadPage-content2 button{
+  width: auto;
+  padding: 0.4rem 1.2rem;
+  background-color: green;
+  color: rgba(255, 255, 255);
+  border: none;
+  margin-top: 1.2rem;
+  cursor: pointer;
+
+}
+
+/* find property page */
+.find-property{
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+.find-property-content h2{
+  position: absolute;
+  width: 16rem;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, -50%);
+  font-weight: lighter;
+  font-weight: 400;
+}
+
+.search-property{
+  left: 5%;
+  top: 20%;
+  width: 16rem;
+}
+.google-map{
+  position: absolute;
+  right: 5%;
+  top: 10%;
+  width: 40rem;
+  height: 20rem;
+  margin-left:auto;
+  margin-right: 3rem;
+  margin-top: 5rem;
+}
+Map{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  
+}
+
+/*buy land styling */
+
+.buy-land{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+.buyLand-content{
+  position: absolute;
+  width: 70vw;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.buyLand-content h2{
+  font-weight: lighter;
+  font-weight: 400;
+}
+
+.properties-for-sale{
+  
+  position: absolute;
+  top: 7%;
+}
+.property-for-sale{
+  top: 5%;
+  width: 50vw;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+  
+}
+
+.landImage{
+  height: 200px;
+  width: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.landImage label{
+  font-size: 1.1rem;
+}
+.property-for-sale img{
+  height: 150px;
+  width: 220px;
+}
+.land-description p{
+  width: 150px;
+  height: 120px;
+  border: thin solid rgba(0,0,0);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.5rem;
+  font-size: 0.8rem;
+}
+.land-details button{
+  background-color: green;
+  color: rgba(255, 255, 255);
+  padding: 0.5rem 1.5rem;
+  border: none;
+}
+
+.filters{
+  position: absolute;
+  top: 15%;
+  right: 15%;
+  
+}
+.filter-options{
+  border: thin solid rgba(0,0,0);
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0.5rem;
+  
+  
+}
+.filter-options span{
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: flex-start;
+  
+}
+
+.section-header{
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: lighter;
+  font-weight: 400;
+}
+
+/*sell Land styles */
+
+.sell-land{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.sell-requirements{
+  position: absolute;
+  top: 60%;
+  width: 95%;
+  height: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  
+}
+.property-info{
+  display: flex;
+  height: 60vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.property-info span{
+  display: block;
+}
+
+.upload-docs-forSale{
+  display: flex;
+  height: 60vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.upload-docs-forSale button{
+  padding: 0.6rem 1.3rem;
+  background-color: green;
+  border: none;
+  color: rgba(255, 255, 255);
+}
+
+/* preview property */
+.preview-property{
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.property-preview-details{
+  position: absolute;
+  height: 80%;
+  width: 50%;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+}
+.property-preview-details img{
+  height: 200px;
+  width: 200px;
+}
+
+.preview-btns{
+  position: absolute;
+  bottom: 20%;
+  width: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+}
+.preview-btns button{
+  padding: 0.6rem 2rem;
+  background-color: green;
+  border: none;
+  color: rgba(255, 255, 255);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/*loader style */
+.main-loader{
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  
+}
+
+.main-loader img{
+  
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*general */
+button{
+  cursor: pointer;
+}
