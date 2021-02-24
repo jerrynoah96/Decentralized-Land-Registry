@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/decentralized-land-registry/static/css/main.eafac940.chunk.css",
+    "main.js": "/decentralized-land-registry/static/js/main.bec0ddf5.chunk.js",
+    "main.js.map": "/decentralized-land-registry/static/js/main.bec0ddf5.chunk.js.map",
+    "runtime-main.js": "/decentralized-land-registry/static/js/runtime-main.28dc3b3e.js",
+    "runtime-main.js.map": "/decentralized-land-registry/static/js/runtime-main.28dc3b3e.js.map",
+    "static/js/2.2c7156ae.chunk.js": "/decentralized-land-registry/static/js/2.2c7156ae.chunk.js",
+    "static/js/2.2c7156ae.chunk.js.map": "/decentralized-land-registry/static/js/2.2c7156ae.chunk.js.map",
+    "index.html": "/decentralized-land-registry/index.html",
+    "precache-manifest.cc2de3d89ab1eb0d290944f4f743d574.js": "/decentralized-land-registry/precache-manifest.cc2de3d89ab1eb0d290944f4f743d574.js",
+    "service-worker.js": "/decentralized-land-registry/service-worker.js",
+    "static/css/main.eafac940.chunk.css.map": "/decentralized-land-registry/static/css/main.eafac940.chunk.css.map",
+    "static/media/darklogo.svg": "/decentralized-land-registry/static/media/darklogo.0c17a4fb.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.28dc3b3e.js",
+    "static/js/2.2c7156ae.chunk.js",
+    "static/css/main.eafac940.chunk.css",
+    "static/js/main.bec0ddf5.chunk.js"
+  ]
+}
