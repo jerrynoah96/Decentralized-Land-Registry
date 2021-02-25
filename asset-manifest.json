@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Decentralized-Land-Registry/static/css/main.eafac940.chunk.css",
-    "main.js": "/Decentralized-Land-Registry/static/js/main.e29108df.chunk.js",
-    "main.js.map": "/Decentralized-Land-Registry/static/js/main.e29108df.chunk.js.map",
+    "main.css": "/Decentralized-Land-Registry/static/css/main.7e67511a.chunk.css",
+    "main.js": "/Decentralized-Land-Registry/static/js/main.ce549d59.chunk.js",
+    "main.js.map": "/Decentralized-Land-Registry/static/js/main.ce549d59.chunk.js.map",
     "runtime-main.js": "/Decentralized-Land-Registry/static/js/runtime-main.70e5f91e.js",
     "runtime-main.js.map": "/Decentralized-Land-Registry/static/js/runtime-main.70e5f91e.js.map",
     "static/js/2.2c7156ae.chunk.js": "/Decentralized-Land-Registry/static/js/2.2c7156ae.chunk.js",
     "static/js/2.2c7156ae.chunk.js.map": "/Decentralized-Land-Registry/static/js/2.2c7156ae.chunk.js.map",
     "index.html": "/Decentralized-Land-Registry/index.html",
-    "precache-manifest.4aa87bf2a02143512bb125b93cee62e2.js": "/Decentralized-Land-Registry/precache-manifest.4aa87bf2a02143512bb125b93cee62e2.js",
+    "precache-manifest.150fe531730a26dae710d1a37dfe94c4.js": "/Decentralized-Land-Registry/precache-manifest.150fe531730a26dae710d1a37dfe94c4.js",
     "service-worker.js": "/Decentralized-Land-Registry/service-worker.js",
-    "static/css/main.eafac940.chunk.css.map": "/Decentralized-Land-Registry/static/css/main.eafac940.chunk.css.map",
+    "static/css/main.7e67511a.chunk.css.map": "/Decentralized-Land-Registry/static/css/main.7e67511a.chunk.css.map",
     "static/media/darklogo.svg": "/Decentralized-Land-Registry/static/media/darklogo.0c17a4fb.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.70e5f91e.js",
     "static/js/2.2c7156ae.chunk.js",
-    "static/css/main.eafac940.chunk.css",
-    "static/js/main.e29108df.chunk.js"
+    "static/css/main.7e67511a.chunk.css",
+    "static/js/main.ce549d59.chunk.js"
   ]
 }
