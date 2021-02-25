@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/decentralized-land-registry/static/css/main.eafac940.chunk.css",
-    "main.js": "/decentralized-land-registry/static/js/main.bec0ddf5.chunk.js",
-    "main.js.map": "/decentralized-land-registry/static/js/main.bec0ddf5.chunk.js.map",
-    "runtime-main.js": "/decentralized-land-registry/static/js/runtime-main.28dc3b3e.js",
-    "runtime-main.js.map": "/decentralized-land-registry/static/js/runtime-main.28dc3b3e.js.map",
-    "static/js/2.2c7156ae.chunk.js": "/decentralized-land-registry/static/js/2.2c7156ae.chunk.js",
-    "static/js/2.2c7156ae.chunk.js.map": "/decentralized-land-registry/static/js/2.2c7156ae.chunk.js.map",
-    "index.html": "/decentralized-land-registry/index.html",
-    "precache-manifest.cc2de3d89ab1eb0d290944f4f743d574.js": "/decentralized-land-registry/precache-manifest.cc2de3d89ab1eb0d290944f4f743d574.js",
-    "service-worker.js": "/decentralized-land-registry/service-worker.js",
-    "static/css/main.eafac940.chunk.css.map": "/decentralized-land-registry/static/css/main.eafac940.chunk.css.map",
-    "static/media/darklogo.svg": "/decentralized-land-registry/static/media/darklogo.0c17a4fb.svg"
+    "main.css": "/Decentralized-Land-Registry/static/css/main.eafac940.chunk.css",
+    "main.js": "/Decentralized-Land-Registry/static/js/main.e29108df.chunk.js",
+    "main.js.map": "/Decentralized-Land-Registry/static/js/main.e29108df.chunk.js.map",
+    "runtime-main.js": "/Decentralized-Land-Registry/static/js/runtime-main.70e5f91e.js",
+    "runtime-main.js.map": "/Decentralized-Land-Registry/static/js/runtime-main.70e5f91e.js.map",
+    "static/js/2.2c7156ae.chunk.js": "/Decentralized-Land-Registry/static/js/2.2c7156ae.chunk.js",
+    "static/js/2.2c7156ae.chunk.js.map": "/Decentralized-Land-Registry/static/js/2.2c7156ae.chunk.js.map",
+    "index.html": "/Decentralized-Land-Registry/index.html",
+    "precache-manifest.4aa87bf2a02143512bb125b93cee62e2.js": "/Decentralized-Land-Registry/precache-manifest.4aa87bf2a02143512bb125b93cee62e2.js",
+    "service-worker.js": "/Decentralized-Land-Registry/service-worker.js",
+    "static/css/main.eafac940.chunk.css.map": "/Decentralized-Land-Registry/static/css/main.eafac940.chunk.css.map",
+    "static/media/darklogo.svg": "/Decentralized-Land-Registry/static/media/darklogo.0c17a4fb.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.28dc3b3e.js",
+    "static/js/runtime-main.70e5f91e.js",
     "static/js/2.2c7156ae.chunk.js",
     "static/css/main.eafac940.chunk.css",
-    "static/js/main.bec0ddf5.chunk.js"
+    "static/js/main.e29108df.chunk.js"
   ]
 }
