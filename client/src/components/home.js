@@ -56,8 +56,8 @@ const Home =(props)=> {
             <div className="home-content">
                 <h2 className="brand-name"> Welcome to Land Registry</h2>
                 <span className="brand-description">Our platform allows you to register, buy and sell lands</span>
-
-                <div className="nav-boxes">
+            <div className="nav-boxes-container">
+                <div className="nav-boxes navbox1">
                     <div className="nav-box" onClick={displayRegisterLand}>
                         <h3>Register Land</h3>
 
@@ -71,7 +71,10 @@ const Home =(props)=> {
                         <p>More details: Kindly register your land. You'll need to upload necessary documents as will be requested from you </p>
 
                     </div>
+                </div>
 
+
+                <div className="nav-boxes navbox2">
                     <div className="nav-box" onClick={displayBuyLand}>
                         <h3>Buy Land</h3>
 
@@ -86,7 +89,10 @@ const Home =(props)=> {
 
                     </div>
                     
+                    
                 </div>
+
+            </div>
 
 
             <div className="sellingPoint-section">

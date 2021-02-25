@@ -24,9 +24,9 @@ class App extends Component {
     try {
       // Get network provider and web3 instance.
       const web3 = await getWeb3();
-      this.setState({
-        web3
-      })
+   //   this.setState({
+     //   web3
+     // })
 
       // Use web3 to get the user's accounts.
      // const accounts = await web3.eth.getAccounts();
@@ -92,7 +92,10 @@ class App extends Component {
   render() {
     let currentPage;
     if (!this.state.web3) {
-      return <div>Loading Web3, accounts, and contract...</div>;
+      return (<div className="initial-loading">
+        <Loader />
+
+     </div>)
     }
 
     if(this.state.currentPage === 'home'){
