@@ -72,6 +72,7 @@ input:focus{
   transform: translate(-50%, -50%);
 }
 
+/* Home content */
 .home-content{
   position: absolute;
   text-align: center;
@@ -112,7 +113,6 @@ input:focus{
 .nav-boxes{
   width: 70vw;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
 
 }
@@ -154,6 +154,123 @@ input:focus{
   left: 50%;
 
 }
+
+/* Media query for home content */
+@media screen and (max-width: 1030px) {
+  .home-content{
+    top: 25%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .home-content{
+    top: 30%;
+  }
+
+  .nav-boxes{
+    width: 90vw;
+  }
+  .nav-box{
+    width: 14rem;
+  }
+
+  .selling-points{
+    width: 70vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .home-content{
+    top: 45%;
+  }
+
+  .nav-boxes{
+    width: 90vw;
+  }
+  .nav-box{
+    width: 8rem;
+    padding: 0.3rem 1rem 0.2rem 1rem;
+  }
+  .nav-box p{
+    font-size: 0.7rem;
+    color: red;
+  }
+  .nav-box h3{
+    font-size: 0.8rem;
+  }
+
+  .selling-points{
+    width: 90vw;
+  }
+  .selling-point{
+    width: 6.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+
+@media screen and (max-width: 400px) {
+  .home-content{
+    top: 40%;
+  }
+
+  .nav-boxes{
+    width: 95vw;
+  }
+  
+  .nav-box p{
+    font-size: 0.7rem;
+    color: red;
+  }
+  .nav-box h3{
+    font-size: 0.7rem;
+  }
+
+  .selling-points{
+    width: 95vw;
+  }
+  .selling-point{
+    width: 6.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 375px), 
+       screen and (max-height: 750px) {
+        .home-content{
+          top: 50% !important;
+        }
+}
+
+
+@media screen and (width: 375px), 
+       screen and (height: 812px) {
+        .home-content{
+          top: 40%;
+        }
+}
+
+@media screen and (max-width: 330px), 
+       screen and (max-height: 575px) {
+        .home-content{
+          top: 60% !important;
+        }
+        .brand-name{
+          font-size: 1.2rem;
+        }
+        .brand-description,
+        .selling-pointHeader{
+          font-size: 1rem;
+        }
+        .nav-box{
+          width: 7rem;
+        }
+        .selling-point{
+          width: 5.5rem;
+        }
+}
+
+
 
 /*style for upload doc page */
 
