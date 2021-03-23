@@ -832,13 +832,10 @@ input::placeholder{
 
 }
 .land-owner-reg h3{
-  margin-top: 1rem;
+  margin-bottom: 1rem;
   font-size: 1.5rem;
   font-weight: 300;
-  position: absolute;
-  top: 7%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  
 }
 .land-owner-reg .input-box{
   display: flex;

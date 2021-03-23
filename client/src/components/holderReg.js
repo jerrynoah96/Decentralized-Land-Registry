@@ -24,8 +24,9 @@ const LandOwnerReg =(props)=> {
             <button className="home-btn"
             onClick={displayHome}> Home</button>
 
-            <h3>Land Owner Registration Form</h3>
+           
             <form className="owner-reg-form">
+            <h3>Land Owner Registration Form</h3>
             
                 <div className="input-box">
                     <label htmlFor="owner-name">Full Name</label>
