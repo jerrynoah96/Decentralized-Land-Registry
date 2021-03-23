@@ -74,7 +74,7 @@ const Home =(props)=> {
 
                     </div>
 
-                    <div className="nav-box" onClick={displayFindProperty}>
+                    <div className="nav-box" onClick={displayHolderReg}>
                     <h3>Land Holder Registration</h3>
 
                         <p>More details: Get Registered as land holder to sell lands on our platforms </p>
