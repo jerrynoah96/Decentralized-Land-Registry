@@ -20,12 +20,13 @@ export class FindProperty extends Component{
                 <div className="brand">
                     <img src={logo} className="logo" alt="logo"/>
                 </div>
-                
+               
                 <button className="home-btn"
             onClick={this.displayHome}> Home</button>
     
                 <div className="find-property-content">
-                    <h2> Find Your Property</h2>
+                <h2 className="find-property-header"> Find Your Property</h2>
+                    
                  <div >
                     <div className="search-container search-property">
                     <span>Enter Property ID</span>
@@ -42,7 +43,7 @@ export class FindProperty extends Component{
     
                     <div className="google-map">
 
-                    <Map google={this.props.google} zoom={14}>
+                    <Map google={this.props.google} zoom={14} className="map">
  
                         <Marker onClick={this.onMarkerClick}
                                 name={'Current location'} />
