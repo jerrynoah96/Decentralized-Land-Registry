@@ -831,10 +831,10 @@ input::placeholder{
   margin-top: 1rem;
 
 }
-.land-owner-reg h3{
-  margin-bottom: 1rem;
+.owner-reg-form h3{
+  margin-bottom: 3rem;
   font-size: 1.5rem;
-  font-weight: 300;
+  font-weight: 400;
   
 }
 .land-owner-reg .input-box{
