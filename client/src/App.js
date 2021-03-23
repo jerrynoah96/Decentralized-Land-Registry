@@ -9,6 +9,7 @@ import FindProperty from './components/findProperty';
 import BuyLand from './components/buyLand';
 import SellLand from './components/sellLand';
 import PreviewProperty from './components/previewProperty';
+import HolderReg from './components/holderReg';
 import "./App.css";
 
 class App extends Component {
@@ -82,6 +83,13 @@ class App extends Component {
       currentPage: 'find property'
     })
   }
+
+  displayHolderRegForm=()=> {
+    this.setState({
+      currentPage: 'holder reg form'
+    })
+  }
+
   displayLoader =()=> {
     this.setState({
       currentPage: 'loader'
@@ -104,7 +112,8 @@ class App extends Component {
       displaySellLand={this.displaySellLand}
       displayRegisterLand={this.displayRegisterLand}
       displayFindProperty={this.displayFindProperty}
-      displayLoader={this.displayLoader}/>
+      displayLoader={this.displayLoader}
+      displayHolderRegForm={this.displayHolderRegForm}/>
     }
     else if(this.state.currentPage === 'register land'){
       currentPage = <UploadDoc 
@@ -116,6 +125,14 @@ class App extends Component {
       displayHome={this.displayHome}
       displayLoader={this.displayLoader}/>
     }
+
+    else if(this.state.currentPage === 'holder reg form'){
+      currentPage = <HolderReg 
+      displayHome={this.displayHome}
+      displayLoader={this.displayLoader}
+      />
+    }
+
     else if(this.state.currentPage === 'buy land'){
       currentPage = <BuyLand 
       displayHome={this.displayHome}

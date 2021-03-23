@@ -37,6 +37,14 @@ const Home =(props)=> {
          }, 3000)
       }
 
+      const displayHolderReg = (e)=> {
+    
+        props.displayLoader(e);
+        setTimeout(() => {
+          props.displayHolderRegForm(e);
+         }, 3000)
+      }
+
     return(
         <div className="home">
             <div className="brand">
@@ -57,6 +65,23 @@ const Home =(props)=> {
                 <h2 className="brand-name"> Welcome to Land Registry</h2>
                 <span className="brand-description">Our platform allows you to register, buy and sell lands</span>
             <div className="nav-boxes-container">
+
+            <div className="nav-boxes navbox0">
+                    <div className="nav-box" onClick={displayHolderReg}>
+                        <h3>Land Holder Registration</h3>
+
+                        <p>More details: Get Registered as land holder to sell lands on our platforms </p>
+
+                    </div>
+
+                    <div className="nav-box" onClick={displayFindProperty}>
+                    <h3>Land Holder Registration</h3>
+
+                        <p>More details: Get Registered as land holder to sell lands on our platforms </p>
+
+                    </div>
+                </div>
+
                 <div className="nav-boxes navbox1">
                     <div className="nav-box" onClick={displayRegisterLand}>
                         <h3>Register Land</h3>

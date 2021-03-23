@@ -5,7 +5,7 @@
   
 }
 .home{
-  height: 120vh;
+  height: 140vh;
   width: 100vw;
   position: relative;
   
@@ -160,6 +160,7 @@ input:focus{
   .home-content{
     top: 25%;
   }
+  
 }
 
 @media screen and (max-width: 800px) {
@@ -232,6 +233,14 @@ input:focus{
   .selling-point{
     width: 6.5rem;
     font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 370px){
+  .home-content{
+    top: 45% !important;
+  }
+  .home{
+    height: 150vh;
   }
 }
 
@@ -788,3 +797,107 @@ input:focus{
 button{
   cursor: pointer;
 }
+input::placeholder{
+  text-align: center;
+}
+
+
+/*Land owner reg form section */
+.land-owner-reg{
+  position: relative;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  
+}
+
+.land-owner-reg form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+.land-owner-reg form button{
+  background-color: green;
+  color: rgba(255, 255, 255);
+  padding: 0.5rem 4rem;
+  border: none;
+  margin-top: 1rem;
+
+}
+.land-owner-reg h3{
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.land-owner-reg .input-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.land-owner-reg .input-box input{
+  height: 1.8rem;
+  width: 20rem;
+}
+
+/*media query for land owner reg form */
+
+@media screen and (max-width: 360px) {
+  .land-owner-reg .input-box input{
+    height: 1.8rem;
+    width: 16rem;
+  }
+  .land-owner-reg h3{
+    font-size: 1.2rem;
+    top: 15%;
+  }
+  .land-owner-reg form{
+    top: 60%;
+  }
+
+
+  
+}
+
+@media screen and (max-width: 330px) {
+  .land-owner-reg .input-box input{
+    height: 1.8rem;
+    width: 16rem;
+  }
+  .land-owner-reg h3{
+    font-size: 1.2rem;
+    top: 15%;
+  }
+  .land-owner-reg form{
+    top: 65% !important;
+  }
+
+
+  
+}
+
+@media screen and (max-width: 450px) {
+  .land-owner-reg .input-box input{
+    height: 1.8rem;
+    width: 16rem;
+  }
+  .land-owner-reg h3{
+    font-size: 1.2rem;
+    top: 15%;
+  }
+  .land-owner-reg form{
+    top: 50%;
+  }
+
+
+  
+}
+
+
