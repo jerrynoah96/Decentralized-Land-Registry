@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import SimpleStorageContract from "./contracts/SimpleStorage.json";
 import getWeb3 from "./getWeb3";
 import Home from './components/home';
 import UploadDoc from './components/uploadDoc';
@@ -10,15 +9,18 @@ import BuyLand from './components/buyLand';
 import SellLand from './components/sellLand';
 import PreviewProperty from './components/previewProperty';
 import HolderReg from './components/holderReg';
+import LandRegAbi from './abis/landreg.json';
 import "./App.css";
 
 class App extends Component {
   state = { 
     storageValue: 0, 
     web3: null, 
-    accounts: null, 
+    account: null, 
     contract: null,
-    currentPage: 'home' 
+    currentPage: 'home',
+    landRedAddress: null,
+    landRegInstance: null
   };
 
   componentDidMount = async () => {
@@ -30,13 +32,29 @@ class App extends Component {
       })
 
       // Use web3 to get the user's accounts.
-     // const accounts = await web3.eth.getAccounts();
+      const accounts = await web3.eth.getAccounts();
+      const account = accounts[0];
+      this.setState({
+        account
+      })
 
-      // Get the contract instance.
-     
+      //load landReg contract
+      const landRegAddress = "0xde87411573b244da8961Df9E1e222eB2C2e7A583";
+      this.setState({
+        landRegAddress
+      })
 
-      // Set web3, accounts, and contract to the state, and then proceed with an
-      // example of interacting with the contract's methods.
+      const landRegInstance = new web3.eth.Contract(LandRegAbi, landRegAddress);
+      this.setState({
+        landRegInstance
+      })
+
+      console.log(this.state.landRegInstance, 'land reg')
+
+      console.log(await this.state.landRegInstance.methods.getHolders().call(), 'holders')
+      
+
+
       
     } catch (error) {
       // Catch any errors for any of the above operations.
@@ -47,6 +65,14 @@ class App extends Component {
     }
   };
 
+
+  LandHolderRegistration= async (fullname, taxpin, email, id, contact)=> {
+    await this.state.landRegInstance.methods.regHolders(fullname, taxpin, email, id, contact).send({
+      from: this.state.account
+
+    })
+    alert("you are successfully registered as land owner on this platform");
+  }
 
   displayHome=()=>{
     this.setState({
@@ -130,6 +156,7 @@ class App extends Component {
       currentPage = <HolderReg 
       displayHome={this.displayHome}
       displayLoader={this.displayLoader}
+      LandHolderRegistration={this.LandHolderRegistration}
       />
     }
 
