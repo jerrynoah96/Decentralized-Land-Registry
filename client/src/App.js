@@ -20,7 +20,8 @@ class App extends Component {
     contract: null,
     currentPage: 'home',
     landRedAddress: null,
-    landRegInstance: null
+    landRegInstance: null,
+    landOwners: null
   };
 
   componentDidMount = async () => {
@@ -51,8 +52,13 @@ class App extends Component {
 
       console.log(this.state.landRegInstance, 'land reg')
 
-      console.log(await this.state.landRegInstance.methods.getHolders().call(), 'holders')
+    //  console.log(await this.state.landRegInstance.methods.getHolders().call(), 'holders')
       
+    const landOwners = await this.state.landRegInstance.methods.getHolders().call();
+    this.setState({
+      landOwners
+    })
+    console.log(this.state.landOwners, 'land guys')
 
 
       
