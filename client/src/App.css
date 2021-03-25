@@ -814,7 +814,7 @@ input::placeholder{
   
 }
 
-.land-owner-reg form{
+.reg-form{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -823,7 +823,7 @@ input::placeholder{
   background-color: rgba(255, 255, 255);
 
 }
-.land-owner-reg form button{
+.reg-form button{
   background-color: green;
   color: rgba(255, 255, 255);
   padding: 0.5rem 4rem;
@@ -831,20 +831,20 @@ input::placeholder{
   margin-top: 1rem;
 
 }
-.owner-reg-form h3{
+.reg-form h3{
   margin-bottom: 3rem;
   font-size: 1.5rem;
   font-weight: 400;
   
 }
-.land-owner-reg .input-box{
+.reg-form .input-box{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   margin-top: 1rem;
 }
 
-.land-owner-reg .input-box input{
+.reg-form .input-box input{
   height: 1.8rem;
   width: 20rem;
 }
@@ -900,6 +900,78 @@ input::placeholder{
 
 
   
+}
+
+/* Land owners Page */
+.owners-profiles-page{
+  height: auto;
+  
+}
+
+.owners-profiles-page .section-header{
+  margin-top: 2rem;
+}
+.owner-details div{
+  display: flex;
+  align-items: center;
+  border: none;
+  justify-content: space-between;
+ 
+}
+.owner-details div span{
+  font-style: italic;
+}
+.owner-details{
+  
+  box-shadow: 0.1rem 0.1rem 0.7rem rgba(0,0,0, 0.1);
+  width: 250px;
+  height: auto;
+  padding: 1rem;
+  font-size: 0.8rem;
+  margin: 1rem;
+
+}
+
+.owners-list{
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -5%);
+  width: 90vw;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  
+  
+
+}
+
+
+@media screen and (max-width: 450px) {
+  .owners-list{
+    top: 35%;
+     
+  
+  }
+
+
+  
+}
+
+/* register land */
+.input-box div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input-box div img{
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
 }
 
 

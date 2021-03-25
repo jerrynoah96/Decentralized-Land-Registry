@@ -58,7 +58,7 @@ render(){
             onClick={this.displayHome}> Home</button>
 
            
-            <form className="owner-reg-form" onSubmit={this.submitForm}>
+            <form className="reg-form" onSubmit={this.submitForm}>
             <h3>Land Owner Registration Form</h3>
             
                 <div className="input-box">

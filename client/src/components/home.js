@@ -45,6 +45,14 @@ const Home =(props)=> {
          }, 3000)
       }
 
+      const displayProfilesPage = (e)=> {
+    
+        props.displayLoader(e);
+        setTimeout(() => {
+          props.displayProfilesPage(e);
+         }, 3000)
+      }
+
     return(
         <div className="home">
             <div className="brand">
@@ -74,10 +82,10 @@ const Home =(props)=> {
 
                     </div>
 
-                    <div className="nav-box" onClick={displayHolderReg}>
-                    <h3>Land Holder Registration</h3>
+                    <div className="nav-box" onClick={displayProfilesPage}>
+                    <h3>Land Owners Profiles</h3>
 
-                        <p>More details: Get Registered as land holder to sell lands on our platforms </p>
+                        <p>More details: See a list of land owners and thier contact details </p>
 
                     </div>
                 </div>

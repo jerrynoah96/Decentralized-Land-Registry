@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import getWeb3 from "./getWeb3";
 import Home from './components/home';
-import UploadDoc from './components/uploadDoc';
+import RegLand from './components/regLand';
 //import UploadDoc2 from './components/uploadDoc2';
 import Loader from './components/loader';
 import FindProperty from './components/findProperty';
 import BuyLand from './components/buyLand';
 import SellLand from './components/sellLand';
+import OwnersProfiles from './components/ownersProfiles';
 import PreviewProperty from './components/previewProperty';
 import HolderReg from './components/holderReg';
 import LandRegAbi from './abis/landreg.json';
@@ -58,9 +59,9 @@ class App extends Component {
     this.setState({
       landOwners
     })
-    console.log(this.state.landOwners, 'land guys')
 
-
+    console.log(this.state.landOwners, 'owners')
+    
       
     } catch (error) {
       // Catch any errors for any of the above operations.
@@ -127,7 +128,11 @@ class App extends Component {
       currentPage: 'loader'
     })
   }
- 
+  displayProfilesPage=()=> {
+    this.setState({
+      currentPage: 'land owners'
+    })
+  } 
 
   render() {
     let currentPage;
@@ -145,10 +150,11 @@ class App extends Component {
       displayRegisterLand={this.displayRegisterLand}
       displayFindProperty={this.displayFindProperty}
       displayLoader={this.displayLoader}
-      displayHolderRegForm={this.displayHolderRegForm}/>
+      displayHolderRegForm={this.displayHolderRegForm}
+      displayProfilesPage={this.displayProfilesPage}/>
     }
     else if(this.state.currentPage === 'register land'){
-      currentPage = <UploadDoc 
+      currentPage = <RegLand 
       displayHome={this.displayHome}
       displayLoader={this.displayLoader}/>
     }
@@ -181,6 +187,15 @@ class App extends Component {
       displayHome={this.displayHome}
       displayLoader={this.displayLoader}/>
     }
+
+    else if(this.state.currentPage === 'land owners'){
+      currentPage = <OwnersProfiles
+      displayHome={this.displayHome}
+      displayLoader={this.displayLoader}
+      landOwners={this.state.landOwners}/>
+    }
+
+
     else if(this.state.currentPage === 'loader'){
       currentPage =< Loader />
     }
