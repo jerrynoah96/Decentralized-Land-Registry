@@ -58,6 +58,9 @@ const Home =(props)=> {
             <div className="brand">
                 <img src={logo} className="logo" alt="logo"/>
             </div>
+            <div className="ceo-btn">
+                <button>CEO's Board</button>
+            </div>
 
             <div className="search-container"> 
                 <div className="search">

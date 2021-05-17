@@ -9,10 +9,19 @@ const OwnersProfiles =(props)=> {
 
     const landOwners = props.landOwners;
     const landOwner = landOwners.map(owner => {
+      console.log(owner.imageHash,'owner image')
       return (
         
             <div className="owner-details" key={owner.key}>
-                <div>
+              <div className="owner-image">
+                <img
+                 
+                src={`https://ipfs.infura.io/ipfs/`+owner.imageHash}
+                 />
+              </div>
+              <div className="other-details">
+
+              <div>
                   <p>Name: </p> <span> {owner.name}</span>
                 </div>
 
@@ -32,6 +41,9 @@ const OwnersProfiles =(props)=> {
                   <p>Wal Add: </p> <span>
                   {owner._address.slice(0,6).concat('...').concat(owner._address.slice(12,18)) }</span>
                 </div>
+
+              </div>
+                
 
 
             </div>

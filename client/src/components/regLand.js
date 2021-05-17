@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import logo from '../images/darklogo.svg';
 
+
 import '../App.css';
+
+const ipfsClient = require('ipfs-http-client')
+const ipfs = ipfsClient({host: "ipfs.infura.io", port: 5001, protocol:"https"})
 
 class RegLand extends Component {
 
@@ -14,7 +18,12 @@ class RegLand extends Component {
             holdername: " ",
             lr_no: " ",
             ownershipdoc: " ",
-            holder_id: " "
+            holder_id: " ",
+            buffer: null,
+            fileCID: null,
+            landImgbuffer: null,
+            landImgCID: null,
+            landImg: " "
     
         }
     
@@ -38,13 +47,105 @@ class RegLand extends Component {
 
 submitForm = (e)=> {
     e.preventDefault();
-    this.props.LandHolderRegistration(this.state.fullname,
-        this.state.taxpin,
-        this.state.email,
-        this.state.id,
-        this.state.contact)
+    this.props.landRegistration(this.state.landtitle,
+        this.state.location,
+        this.state.holdername,
+        this.state.lr_no,
+        this.state.fileCID,
+        this.state.landImgCID,
+        this.state.holder_id)
     
 }
+
+captureFile = (e)=>{
+    e.preventDefault();
+    console.log('file catured')
+    //process file for ipfs
+    //first fetch file from event
+    const userFile = e.target.files[0];
+    const reader = new window.FileReader();
+    reader.readAsArrayBuffer(userFile);
+    reader.onloadend = () => {
+        this.setState({
+            buffer: Buffer(reader.result)
+        })
+        console.log(this.state.buffer);
+       
+    }
+
+}
+
+
+captureImg = (e)=>{
+    e.preventDefault();
+    console.log('file catured')
+    //process file for ipfs
+    //first fetch file from event
+    const userFile = e.target.files[0];
+    const reader = new window.FileReader();
+    reader.readAsArrayBuffer(userFile);
+    reader.onloadend = () => {
+        this.setState({
+            landImgbuffer: Buffer(reader.result)
+        })
+        console.log(this.state.landImgbuffer);
+       
+    }
+
+}
+ //https://ipfs.infura.io/ipfs/QmVbbYGaCoJa4rMgw41GkGPXQa8184ioLwcipmvb2D926f
+    //push file to ipfs using file buffer
+    uploadToIPFS = async (e)=> {
+        e.preventDefault();
+        console.log('pushing file to IPFS')
+        if(this.state.buffer){
+            try{
+                const result = await ipfs.add(this.state.buffer)
+                const fileCID = result.cid.string;
+                //console.log('result', result);
+                this.setState({
+                    fileCID
+                })
+
+                 console.log(this.state.fileCID, 'ipfsHash')
+                
+            }
+            catch(e){
+                console.log('error', e)
+            }
+        
+        } else{
+            alert('choose a valid file');
+        }
+
+    }
+
+    uploadImgToIPFS = async (e)=> {
+        e.preventDefault();
+        console.log('pushing file to IPFS')
+        if(this.state.buffer){
+            try{
+                const result = await ipfs.add(this.state.landImgbuffer)
+                const landImgCID = result.cid.string;
+                //console.log('result', result);
+                this.setState({
+                    landImgCID
+                })
+
+                 console.log(this.state.landImgCID, 'landImg Hash')
+                
+            }
+            catch(e){
+                console.log('error', e)
+            }
+        
+        } else{
+            alert('choose a valid file');
+        }
+
+    }
+
+
 
 render(){
     return(
@@ -108,12 +209,27 @@ render(){
                     <div>
                     <input type="file" id="ownershipdoc" 
                     name="ownershipdoc" setValue={this.state.ownershipdoc}
-                    onChange={this.handleInput}/> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs1J9WIKjkDvSojTBOgJGqMKMAQ4YSZOxUxQ&usqp=CAU" alt="upload"/>
+                    onChange={this.captureFile}/> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs1J9WIKjkDvSojTBOgJGqMKMAQ4YSZOxUxQ&usqp=CAU" alt="upload"
+                    onClick={this.uploadToIPFS}/>
 
                     </div>
 
 
                 </div>
+
+                <div className="input-box">
+                    <label htmlFor="property-img">Property Image</label>
+                    <div>
+                    <input type="file" id="property-img" 
+                    name="property-img" setValue={this.state.landImg}
+                    onChange={this.captureImg}/> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs1J9WIKjkDvSojTBOgJGqMKMAQ4YSZOxUxQ&usqp=CAU" alt="upload"
+                    onClick={this.uploadImgToIPFS}/>
+
+                    </div>
+
+
+                </div>
+
 
                 <button>Submit</button>
 

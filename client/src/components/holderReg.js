@@ -3,6 +3,9 @@ import logo from '../images/darklogo.svg';
 
 
 import '../App.css';
+const ipfsClient = require('ipfs-http-client')
+const ipfs = ipfsClient({host: "ipfs.infura.io", port: 5001, protocol:"https"})
+
 
 class LandOwnerReg extends Component {
 
@@ -15,7 +18,9 @@ class LandOwnerReg extends Component {
             taxpin: " ",
             email: " ",
             id: " ",
-            contact: " "
+            contact: " ",
+            buffer: null,
+            fileCID: null
     
         }
     
@@ -41,10 +46,57 @@ submitForm = (e)=> {
     this.props.LandHolderRegistration(this.state.fullname,
         this.state.taxpin,
         this.state.email,
+        this.state.fileCID,
         this.state.id,
-        this.state.contact)
+        this.state.contact
+        )
     
 }
+
+captureFile = (e)=>{
+    e.preventDefault();
+    console.log('file catured')
+    //process file for ipfs
+    //first fetch file from event
+    const userFile = e.target.files[0];
+    const reader = new window.FileReader();
+    reader.readAsArrayBuffer(userFile);
+    reader.onloadend = () => {
+        this.setState({
+            buffer: Buffer(reader.result)
+        })
+        console.log(this.state.buffer);
+       
+    }
+
+}
+
+ //https://ipfs.infura.io/ipfs/QmVbbYGaCoJa4rMgw41GkGPXQa8184ioLwcipmvb2D926f
+    //push file to ipfs using file buffer
+    uploadToIPFS = async (e)=> {
+        e.preventDefault();
+        console.log('pushing file to IPFS')
+        if(this.state.buffer){
+            try{
+                const result = await ipfs.add(this.state.buffer)
+                const fileCID = result.cid.string;
+                //console.log('result', result);
+                this.setState({
+                    fileCID
+                })
+
+                 console.log(this.state.fileCID, 'image ipfsHash')
+                
+            }
+            catch(e){
+                console.log('error', e)
+            }
+        
+        } else{
+            alert('choose a valid file');
+        }
+
+    }
 
 render(){
     return(
@@ -98,6 +150,21 @@ render(){
                     <input type="number" id="contact" placeholder="+(254) 000 000" 
                     name="contact" value={this.state.contact}
                     onChange={this.handleInput}/>
+
+                </div>
+
+                <div className="input-box">
+                    <label htmlFor="ownerimage">Upload Your Picture</label>
+                    <div>
+                    <input type="file"
+                    accept=".png, .jpg, .jpeg"
+                     id="ownerimage" 
+                    name="ownerimage" setValue={this.state.ownershipdoc}
+                    onChange={this.captureFile}/> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs1J9WIKjkDvSojTBOgJGqMKMAQ4YSZOxUxQ&usqp=CAU" alt="upload"
+                    onClick={this.uploadToIPFS}/>
+
+                    </div>
+
 
                 </div>
 

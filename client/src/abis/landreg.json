@@ -7,6 +7,45 @@
 				"internalType": "uint256",
 				"name": "propertyId",
 				"type": "uint256"
+			}
+		],
+		"name": "LogApprovedForTransaction",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "propertyId",
+				"type": "uint256"
+			}
+		],
+		"name": "LogLeased",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "propertyId",
+				"type": "uint256"
+			}
+		],
+		"name": "LogSold",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "propertyId",
+				"type": "uint256"
 			},
 			{
 				"indexed": false,
@@ -37,6 +76,12 @@
 				"internalType": "string",
 				"name": "ipfsHash",
 				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "landimgipfshash",
+				"type": "string"
 			}
 		],
 		"name": "NewProperty",
@@ -63,19 +108,6 @@
 	},
 	{
 		"inputs": [],
-		"name": "ceoaddress",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "getHolders",
 		"outputs": [
 			{
@@ -93,6 +125,11 @@
 					{
 						"internalType": "string",
 						"name": "email",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "imageHash",
 						"type": "string"
 					},
 					{
@@ -117,6 +154,66 @@
 					}
 				],
 				"internalType": "struct LandReg.holder[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getProperties",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "holder_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "lr_no",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "ipfsHash",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "landimgipfshash",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "holder_id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_addr",
+						"type": "address"
+					},
+					{
+						"internalType": "enum LandReg.State",
+						"name": "propertystate",
+						"type": "uint8"
+					}
+				],
+				"internalType": "struct LandReg.property[]",
 				"name": "",
 				"type": "tuple[]"
 			}
@@ -265,6 +362,11 @@
 				"type": "string"
 			},
 			{
+				"internalType": "string",
+				"name": "imageHash",
+				"type": "string"
+			},
+			{
 				"internalType": "uint256",
 				"name": "id_no",
 				"type": "uint256"
@@ -311,6 +413,11 @@
 			{
 				"internalType": "string",
 				"name": "email",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "imageHash",
 				"type": "string"
 			},
 			{
@@ -386,6 +493,11 @@
 				"type": "string"
 			},
 			{
+				"internalType": "string",
+				"name": "landimgipfshash",
+				"type": "string"
+			},
+			{
 				"internalType": "uint256",
 				"name": "holder_id",
 				"type": "uint256"
@@ -394,6 +506,11 @@
 				"internalType": "address",
 				"name": "_addr",
 				"type": "address"
+			},
+			{
+				"internalType": "enum LandReg.State",
+				"name": "propertystate",
+				"type": "uint8"
 			}
 		],
 		"stateMutability": "view",
@@ -454,6 +571,11 @@
 				"type": "string"
 			},
 			{
+				"internalType": "string",
+				"name": "landimgipfshash",
+				"type": "string"
+			},
+			{
 				"internalType": "uint256",
 				"name": "holder_id",
 				"type": "uint256"
@@ -462,6 +584,11 @@
 				"internalType": "address",
 				"name": "_addr",
 				"type": "address"
+			},
+			{
+				"internalType": "enum LandReg.State",
+				"name": "propertystate",
+				"type": "uint8"
 			}
 		],
 		"stateMutability": "view",
@@ -482,6 +609,11 @@
 			{
 				"internalType": "string",
 				"name": "email",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "imageHash",
 				"type": "string"
 			},
 			{
@@ -528,6 +660,11 @@
 				"type": "string"
 			},
 			{
+				"internalType": "string",
+				"name": "landimgipfshash",
+				"type": "string"
+			},
+			{
 				"internalType": "uint256",
 				"name": "holder_id",
 				"type": "uint256"
@@ -559,6 +696,11 @@
 				"internalType": "uint256",
 				"name": "id_no",
 				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
 			}
 		],
 		"name": "regValidators",

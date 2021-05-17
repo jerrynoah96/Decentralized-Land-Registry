@@ -41,7 +41,7 @@ class App extends Component {
       })
 
       //load landReg contract
-      const landRegAddress = "0xde87411573b244da8961Df9E1e222eB2C2e7A583";
+      const landRegAddress = "0x9D4948fB52888DE25E284A7caDc32953d22f4635";
       this.setState({
         landRegAddress
       })
@@ -61,8 +61,8 @@ class App extends Component {
     })
 
     console.log(this.state.landOwners, 'owners')
-    
-      
+    const allproperties = this.getAllProperties();
+      console.log(allproperties, "properties")
     } catch (error) {
       // Catch any errors for any of the above operations.
       alert(
@@ -72,13 +72,28 @@ class App extends Component {
     }
   };
 
+ getAllProperties = async()=> {
+  const res =  await this.state.landRegInstance.methods.getProperties().call();
+  console.log(res,'properties')
+  }
 
-  LandHolderRegistration= async (fullname, taxpin, email, id, contact)=> {
-    await this.state.landRegInstance.methods.regHolders(fullname, taxpin, email, id, contact).send({
+
+  LandHolderRegistration= async (fullname, taxpin, email, imageHash, id, contact)=> {
+    await this.state.landRegInstance.methods.regHolders(fullname, taxpin, email, imageHash, id, contact).send({
       from: this.state.account
 
     })
     alert("you are successfully registered as land owner on this platform");
+  }
+
+  landRegistration = async(landtitle, location, holdername, lr_no, fileCID,landImgCID, holder_id)=> {
+   const result=  await this.state.landRegInstance.methods.regProperty(landtitle, location, holdername, lr_no, fileCID,landImgCID, holder_id).send({
+      from: this.state.account
+    })
+
+     console.log(result, 'land registry')
+
+    alert("Your land has been successfully registered")
   }
 
   displayHome=()=>{
@@ -156,7 +171,8 @@ class App extends Component {
     else if(this.state.currentPage === 'register land'){
       currentPage = <RegLand 
       displayHome={this.displayHome}
-      displayLoader={this.displayLoader}/>
+      displayLoader={this.displayLoader}
+      landRegistration={this.landRegistration}/>
     }
     else if(this.state.currentPage === 'sell land'){
       currentPage = <SellLand 
