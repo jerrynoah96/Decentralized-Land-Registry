@@ -13,6 +13,14 @@ const Home =(props)=> {
          }, 3000)
       }
 
+      const displayCEO = (e)=> {
+    
+        props.displayLoader(e);
+        setTimeout(() => {
+          props.displayCEOBoard(e);
+         }, 3000)
+      }
+
       const displaySellLand = (e)=> {
     
         props.displayLoader(e);
@@ -59,7 +67,8 @@ const Home =(props)=> {
                 <img src={logo} className="logo" alt="logo"/>
             </div>
             <div className="ceo-btn">
-                <button>CEO's Board</button>
+                <button
+                onClick={displayCEO}>CEO's Board</button>
             </div>
 
             <div className="search-container"> 
@@ -81,14 +90,14 @@ const Home =(props)=> {
                     <div className="nav-box" onClick={displayHolderReg}>
                         <h3>Land Holder Registration</h3>
 
-                        <p>More details: Get Registered as land holder to sell lands on our platforms </p>
+                        <p> <span>More details</span>: Get Registered as land holder to sell lands on our platforms </p>
 
                     </div>
 
                     <div className="nav-box" onClick={displayProfilesPage}>
                     <h3>Land Owners Profiles</h3>
 
-                        <p>More details: See a list of land owners and thier contact details </p>
+                        <p><span>More details</span>: See a list of land owners and thier contact details </p>
 
                     </div>
                 </div>
@@ -97,14 +106,14 @@ const Home =(props)=> {
                     <div className="nav-box" onClick={displayRegisterLand}>
                         <h3>Register Land</h3>
 
-                        <p>More details: Kindly register your land. You'll need to upload necessary documents as will be requested from you </p>
+                        <p><span>More details</span>: Kindly register your land. You'll need to upload necessary documents as will be requested from you </p>
 
                     </div>
 
                     <div className="nav-box" onClick={displayFindProperty}>
                         <h3>Search for Property</h3>
 
-                        <p>More details: Kindly register your land. You'll need to upload necessary documents as will be requested from you </p>
+                        <p><span>More details</span>: Kindly register your land. You'll need to upload necessary documents as will be requested from you </p>
 
                     </div>
                 </div>
@@ -114,14 +123,14 @@ const Home =(props)=> {
                     <div className="nav-box" onClick={displayBuyLand}>
                         <h3>Buy Land</h3>
 
-                        <p>More details: Kindly register your land. You'll need to upload necessary documents as will be requested from you </p>
+                        <p><span>More details</span>: Kindly register your land. You'll need to upload necessary documents as will be requested from you </p>
 
                     </div>
 
                     <div className="nav-box" onClick={displaySellLand}>
                         <h3>Sell Land</h3>
 
-                        <p>More details: Kindly register your land. You'll need to upload necessary documents as will be requested from you </p>
+                        <p><span>More details</span>: Kindly register your land. You'll need to upload necessary documents as will be requested from you </p>
 
                     </div>
                     

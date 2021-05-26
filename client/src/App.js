@@ -9,6 +9,7 @@ import BuyLand from './components/buyLand';
 import SellLand from './components/sellLand';
 import OwnersProfiles from './components/ownersProfiles';
 import PreviewProperty from './components/previewProperty';
+import CEO from './components/ceoBoard';
 import HolderReg from './components/holderReg';
 import LandRegAbi from './abis/landreg.json';
 import "./App.css";
@@ -22,7 +23,8 @@ class App extends Component {
     currentPage: 'home',
     landRedAddress: null,
     landRegInstance: null,
-    landOwners: null
+    landOwners: null,
+    lands: null
   };
 
   componentDidMount = async () => {
@@ -62,7 +64,7 @@ class App extends Component {
 
     console.log(this.state.landOwners, 'owners')
     const allproperties = this.getAllProperties();
-      console.log(allproperties, "properties")
+      console.log(allproperties, "registered properties");
     } catch (error) {
       // Catch any errors for any of the above operations.
       alert(
@@ -73,8 +75,11 @@ class App extends Component {
   };
 
  getAllProperties = async()=> {
-  const res =  await this.state.landRegInstance.methods.getProperties().call();
-  console.log(res,'properties')
+    const lands = await this.state.landRegInstance.methods.getProperties().call();
+    this.setState({
+      lands
+    })
+    console.log(this.state.lands, 'lands')
   }
 
 
@@ -83,7 +88,7 @@ class App extends Component {
       from: this.state.account
 
     })
-    alert("you are successfully registered as land owner on this platform");
+    
   }
 
   landRegistration = async(landtitle, location, holdername, lr_no, fileCID,landImgCID, holder_id)=> {
@@ -92,9 +97,14 @@ class App extends Component {
     })
 
      console.log(result, 'land registry')
-
-    alert("Your land has been successfully registered")
   }
+
+  regvalidators = async(fullname, title, email, id, address)=> {
+    await this.state.landRegInstance.methods.regValidators(fullname, title, email, id, address).send({
+      from: this.state.account
+    })
+    
+  } 
 
   displayHome=()=>{
     this.setState({
@@ -138,6 +148,12 @@ class App extends Component {
     })
   }
 
+  displayCEOBoard=()=> {
+    this.setState({
+      currentPage: 'ceo'
+    })
+  }
+
   displayLoader =()=> {
     this.setState({
       currentPage: 'loader'
@@ -166,7 +182,8 @@ class App extends Component {
       displayFindProperty={this.displayFindProperty}
       displayLoader={this.displayLoader}
       displayHolderRegForm={this.displayHolderRegForm}
-      displayProfilesPage={this.displayProfilesPage}/>
+      displayProfilesPage={this.displayProfilesPage}
+      displayCEOBoard={this.displayCEOBoard}/>
     }
     else if(this.state.currentPage === 'register land'){
       currentPage = <RegLand 
@@ -201,7 +218,8 @@ class App extends Component {
     else if(this.state.currentPage === 'find property'){
       currentPage = <FindProperty 
       displayHome={this.displayHome}
-      displayLoader={this.displayLoader}/>
+      displayLoader={this.displayLoader}
+      lands={this.state.lands}/>
     }
 
     else if(this.state.currentPage === 'land owners'){
@@ -209,6 +227,13 @@ class App extends Component {
       displayHome={this.displayHome}
       displayLoader={this.displayLoader}
       landOwners={this.state.landOwners}/>
+    }
+
+    else if(this.state.currentPage === 'ceo'){
+      currentPage = <CEO
+      displayHome={this.displayHome}
+      displayLoader={this.displayLoader}
+      regValidators={this.regvalidators}/>
     }
 
 

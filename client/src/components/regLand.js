@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import logo from '../images/darklogo.svg';
-
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../App.css';
 
 const ipfsClient = require('ipfs-http-client')
 const ipfs = ipfsClient({host: "ipfs.infura.io", port: 5001, protocol:"https"})
+
+toast.configure();
 
 class RegLand extends Component {
 
@@ -23,11 +25,17 @@ class RegLand extends Component {
             fileCID: null,
             landImgbuffer: null,
             landImgCID: null,
-            landImg: " "
+            landImg: " ",
+            successState: "0",
+            progressText: "processing request",
+            loaderShow: false
     
         }
     
         this.handleInput = this.handleInput.bind(this);
+        this.uploadImgToIPFS = this.uploadImgToIPFS.bind(this);
+        this.uploadToIPFS = this.uploadToIPFS.bind(this);
+        this.submitForm = this.submitForm.bind(this);
     }
 
     displayHome = (e)=> {
@@ -39,21 +47,59 @@ class RegLand extends Component {
       }
       // <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs1J9WIKjkDvSojTBOgJGqMKMAQ4YSZOxUxQ&usqp=CAU" alt="upload"/>
 
-      handleInput(e) {
+      handleInput=(e)=> {
         this.setState({
           [e.target.name]: e.target.value
         });
       }
 
-submitForm = (e)=> {
+submitForm = async (e)=> {
     e.preventDefault();
-    this.props.landRegistration(this.state.landtitle,
+    try{
+        this.setState({
+            loaderShow: true
+        })
+        this.setState({
+            progressText: "Uploading images and Docs, this may take some seconds depending on your internet connection"
+        })
+
+        await this.uploadToIPFS();
+    await this.uploadImgToIPFS();
+    this.setState({
+        progressText: "Image and Doc upload successful !...."
+    })
+
+    this.setState({
+        progressText: "registering property...."
+    })
+
+    await  this.props.landRegistration(this.state.landtitle,
         this.state.location,
         this.state.holdername,
         this.state.lr_no,
         this.state.fileCID,
         this.state.landImgCID,
         this.state.holder_id)
+
+        this.setState({
+            progressText: "done...."
+        })
+        this.setState({
+            loaderShow: false
+        })
+
+    
+        toast.success('Land registered successfully!', {
+            autoClose: false
+        });
+        
+    }
+
+    catch(error){
+        toast.error(error);
+    }
+    
+    
     
 }
 
@@ -96,7 +142,7 @@ captureImg = (e)=>{
  //https://ipfs.infura.io/ipfs/QmVbbYGaCoJa4rMgw41GkGPXQa8184ioLwcipmvb2D926f
     //push file to ipfs using file buffer
     uploadToIPFS = async (e)=> {
-        e.preventDefault();
+        
         console.log('pushing file to IPFS')
         if(this.state.buffer){
             try{
@@ -121,7 +167,7 @@ captureImg = (e)=>{
     }
 
     uploadImgToIPFS = async (e)=> {
-        e.preventDefault();
+        
         console.log('pushing file to IPFS')
         if(this.state.buffer){
             try{
@@ -156,6 +202,14 @@ render(){
             
             <button className="home-btn"
             onClick={this.displayHome}> Home</button>
+
+        { this.state.loaderShow ? <div className="progress-loader" display={this.state.loaderShow}>
+            <span>{this.state.progressText}</span>
+            <img src="https://cdn.dribbble.com/users/2077073/screenshots/6005120/loadin_gif.gif" alt="loader"/>
+            </div>: null }
+
+        
+
             <h2 className="section-header">Register Your Land</h2>
 
             <div className="register-land-content">
@@ -231,7 +285,7 @@ render(){
                 </div>
 
 
-                <button>Submit</button>
+                <button onClick={this.submitForm}>Submit</button>
 
             </form>
 

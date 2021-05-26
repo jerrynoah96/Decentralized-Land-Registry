@@ -5,17 +5,55 @@ import logo from '../images/darklogo.svg';
 
 import '../App.css';
 
-export class FindProperty extends Component{
+const FindProperty =(props)=> {
 
-    displayHome = (e)=> {
     
-        this.props.displayLoader(e);
+
+    const displayHome = (e)=> {
+    
+        props.displayLoader(e);
         setTimeout(() => {
-         this.props.displayHome(e);
+         props.displayHome(e);
          }, 3000)
       }
 
-    render(){
+      const lands = props.lands;
+      const landList = lands.map((land)=> {
+          let propertystate;
+          if(land.propertystate == "0"){
+              propertystate = "awaiting verification"
+
+          }
+
+    return(
+        <div className="registered-property">
+                                <div className="text-details">
+                                    <p>Holder Name: <span>{land.holder_name}</span></p>
+                                    <p>property Name: <span>{land.name}</span></p>
+                                    <p>Location: <span>{land.location}</span></p>
+                                    <p>LR No: <span>{land.lr_no}</span></p>
+                                    <p>Holder ID: <span>{land.holder_id}</span></p>
+                                    <p>Verified: <span>{propertystate}</span></p>
+                                    <a href={`https://ipfs.infura.io/ipfs/`+land.ipfsHash}
+                                    target="_blank">see Ownership Doc</a>
+
+                                </div>
+
+                                <div className="property-img">
+                                    <img 
+                                    src={`https://ipfs.infura.io/ipfs/`+land.landimgipfshash}/>
+
+                                </div>
+
+                            </div>
+
+    )
+
+        
+
+      })
+
+    
         return(
             <div className="find-property">
                 <div className="brand">
@@ -23,7 +61,7 @@ export class FindProperty extends Component{
                 </div>
                
                 <button className="home-btn"
-            onClick={this.displayHome}> Home</button>
+            onClick={displayHome}> Home</button>
     
                 <div className="find-property-content">
                 <h2 className="find-property-header"> Property List</h2>
@@ -44,23 +82,8 @@ export class FindProperty extends Component{
 
                     <div className="property-list">
                         <Carousel className="carousel">
-                            <div className="registered-property">
-                                <div className="text-details">
-                                    <p>Holder Name: <span>Jerry</span></p>
-                                    <p>property Name: <span>House 1</span></p>
-                                    <p>Location: <span>Jerry</span></p>
-                                    <p>LR No: <span>123</span></p>
-                                    <p>Holder ID: <span>123</span></p>
-
-                                </div>
-
-                                <div className="property-img">
-                                    <img 
-                                    src="https://www.investopedia.com/thmb/ORMhEo44tHDwWBJvXtcR664DC88=/3400x1912/smart/filters:no_upscale()/getty-large-farm-landscape-56c0a6aa5f9b5829f867287c.jpg"/>
-
-                                </div>
-
-                            </div>
+                            {landList}
+                            
 
                         </Carousel>
 
@@ -74,9 +97,5 @@ export class FindProperty extends Component{
         )
 
     }
-
-    
-
-}
 
 export default FindProperty;

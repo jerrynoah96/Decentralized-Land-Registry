@@ -47,6 +47,7 @@ input:focus{
   position: absolute;
   top: 3%;
   right: 2%;
+  
 }
 .search {
   width: 100%;
@@ -59,7 +60,7 @@ input:focus{
   border: 1px solid rgba(0, 0, 0, 0.7);
   border-right: none;
   padding: 5px;
-  height: 20px;
+  height: 35px !important;
   outline: none;
   color: rgba(0,0,0);
 }
@@ -99,10 +100,10 @@ input:focus{
 }
 
 .nav-box{
-  height: 7rem;
-  width: 17rem;
+  height: 9rem !important;
+  width: 18rem !important;
   border: 0.2rem solid green;
-  padding: 0.5rem 1.2rem 0.2rem 1.2rem;
+  padding: 0.5rem 1.2rem 0.5rem 1.2rem !important;
   margin-top: 1.5rem;
   cursor: pointer;
   box-shadow: 0.1rem 0.1rem 0.7rem rgba(0,0,0, 0.2);
@@ -113,11 +114,16 @@ input:focus{
 }
 
 .nav-box p{
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: red;
+  line-height: 1.4rem;
+}
+.nav-box p span{
+  font-style: italic;
+  font-weight: bold;
 }
 .nav-box h3{
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 .nav-boxes-container{
   display: flex;
@@ -299,6 +305,23 @@ input:focus{
         }
 }
 
+/* CEO's board */
+.ceo-board{
+  height: 100vh;
+  position: relative !important;
+  background-color: rgba(0,0,0, 0.9)!important;
+}
+
+.ceo-board .home-content{
+  position: absolute !important;
+  top: 30% !important;
+  color: white !important;
+}
+.ceo-board .nav-boxes {
+  width: 50vw !important;
+  margin-top: 10% !important;
+}
+
 
 
 /*style for upload doc page */
@@ -413,11 +436,11 @@ input:focus{
   width: 100%;
 }
 .carousel{
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
   width: 60% !important;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) !important;
  
   
 }
@@ -465,6 +488,16 @@ input:focus{
   margin-top: 5rem;
   text-align: center;
  
+}
+.text-details a{
+  background-color: green;
+  color: rgba(255, 255, 255) !important;
+  padding: 1rem 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 
@@ -1058,4 +1091,43 @@ input::placeholder{
   cursor: pointer;
 }
 
+/* bootstrap modal dialogue on ceo board and validators board */
+.modal-content{
+  height: 80vh !important;
+}
+.modal-title{
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+
+/* styling for progress loader */
+.progress-loader{
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  top: 0;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-loader img{
+  
+  height: 190px;
+  width: 220px;
+  border-radius: 50%;
+}
+.progress-loader span{
+  color: green;
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-bottom: 2rem;
+  width: 600px;
+}
 
